@@ -1,11 +1,29 @@
 {
     "compilerOptions": {
-        "outDir": "./build",
+        "outDir": "./build/",
+        // позволяет использовать any
         "noImplicitAny": true,
+        // позволяет использовать ES6 вместо ES5
         "module": "ES6",
+        // итоговая версия экмаскрипта в которую преобразуются все ts файлы
         "target": "ES5",
+        // позволяет использовать jsx в ts файлах
         "jsx": "react",
+        // компилятор будет обрабатывать не только ts файлы, но и js файлы
         "allowJs": true,
-        "esModuleInterop": true
-    }
+        "moduleResolution": "node",
+        // позволяет изменить импорты common js (require, module.exports) на 
+        // import Moment from "moment"
+        "esModuleInterop": true,
+        // Если какая-либо библиотека не имеет default импорта, то включаем эту опцию
+        // чтобы не было ошибки, тогда лоадеры автоматически сгенерируют импорт через *
+        // было import * as React from "react"
+        // стало import React from "react"
+        "allowSyntheticDefaultImports": true,
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+  } 
 }
