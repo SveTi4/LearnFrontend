@@ -1,10 +1,17 @@
-import { Counter } from "./components/Counter";
+import { Route, Routes } from "react-router-dom";
+import AboutPage from "./components/pages/AboutPage/AboutPage";
+import MainPage from "./components/pages/MainPage/MainPage";
+import { Link } from "react-router-dom";
 
 const App = () => {
     return (
-        <div>
-            <h1>Hello, world!</h1>
-            <Counter />            
+        <div className="app">
+            <Link to={'/about'}>About</Link>
+            <Link to={'/'}>Main</Link>
+            <Routes>
+                <Route path={'/about'} element={<AboutPage />}/>
+                <Route path={'/'} element={<MainPage />}/>
+            </Routes>
         </div>
     );
 };
